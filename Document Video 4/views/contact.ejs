@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>File HTMl nhe</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <% include partials/navbar.ejs %>
+    <h1>Welcome to my website for RHP Team</h1>
+    <p>You want contact our team! Please fill this form:</p>
+
+
+    <form action="" id="contact-form" method="post">
+        <label for="who">Who do you want to contact?</label><br>
+        <input type="text" name="who" placeholder="Name..."><br>
+        <label for="department">Which department?</label><br>
+        <input type="text" name="department" placeholder="Department"><br>
+        <label for="email">Your email</label><br>
+        <input type="email" name="email" placeholder="Your email..."><br>
+        <input type="submit" value="Send"><br>
+    </form>
+</body>
+</html>
+

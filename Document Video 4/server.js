@@ -1,25 +1,37 @@
 // Call Module Express
 var express = require('express');
+var bodyParser = require('body-parser');
 
 var app = express();
 
+var urlphantich = bodyParser.urlencoded({extended: false});
+
 app.set('view engine', 'ejs');
 
+
+app.use(express.static('stuff'));
+
+
+
 app.get('/', function(req, res) {
-    res.sendFile(__dirname + '/index.html', 'utf8');
+    res.render('index');
 })
 app.get('/login', function(req, res) {
-    res.sendFile(__dirname + '/login.html', 'utf8');
+    res.render('login');
 })
 
-app.get('/register/:userId', function(req, res) {
-    var infor = {
-        username: 'skyalbert',
-        password: '123',
-        age: '21',
-        jobs: ['progamming', 'designer', 'waiter'],
-    }
-    res.render('register', {id: req.params.userId, information: infor, jobs: infor.jobs});
+app.get('/register', function(req, res) {
+
+    res.render('register');
+})
+
+app.get('/contact', function(req, res) {
+    res.render('contact');
+})
+
+app.post('/contact', urlphantich, function(req, res) {
+    console.log(req.body);
+    res.render('contact-success', {data: req.body});
 })
 
 
